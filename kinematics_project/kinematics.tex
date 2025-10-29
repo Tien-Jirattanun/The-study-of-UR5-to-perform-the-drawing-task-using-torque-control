@@ -6,6 +6,7 @@
 \usepackage{pgfgantt} 
 \usepackage[table]{xcolor}  
 \usepackage{colortbl}      
+\usepackage[document]{ragged2e}
 
 \geometry{a4paper, margin=0.8in}
 
@@ -80,7 +81,6 @@
 \textbf{1. Introduction} \\
 \textbf{1.1 Objective}  \\
 \normalsize
-\vspace*{-0.9\baselineskip}
 \begin{enumerate}[nosep, itemsep=-2pt] 
     \item To develop the UR5 industrial robot manipulator to perform the drawing task in Gazebo Ignition physics simulation. 
     \item Design and implement a torque control system that can follow position, velocity, and torque trajectories.
@@ -92,7 +92,6 @@
 \large 
 \textbf{1.2 Scope of the study} \\ 
 \normalsize
-\vspace*{-0.9\baselineskip} 
 \begin{enumerate}[nosep, itemsep=-2pt] 
     \item This project is conducted and tested only in the Gazebo Ignition physics simulation environment using the ROS2 middleware; real-world implementation is not included.
     \item This project only covers drawing task with 1 fixed drawing plain and not coverage pen changing, drawing at multiple plains, or other additional tasks.
@@ -109,7 +108,6 @@ literature review with 2-3 paper
 \noindent
 \textbf{3. Related knowledge with FRA333} \\
 \normalsize
-\vspace*{-0.9\baselineskip} 
 \begin{enumerate}[nosep, itemsep=-2pt]
     \item Forward Kinematics 
     \item Inverse Kinematics
@@ -168,7 +166,6 @@ literature review with 2-3 paper
 \noindent
 \textbf{5. Learning outcome} \\
 \normalsize
-\vspace*{-0.9\baselineskip} 
 \begin{enumerate}[nosep, itemsep=-2pt]
     \item To study a Torque-Control system design that is able to follow the position, velocity, acceleration, and wrench trajectory using a dynamics model. 
     \item To study and develop the process of trajectory generation from image processing.
