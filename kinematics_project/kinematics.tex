@@ -7,8 +7,10 @@
 \usepackage[table]{xcolor}  
 \usepackage{colortbl}      
 \usepackage[document]{ragged2e}
+\usepackage{hang}
 
 \geometry{a4paper, margin=0.8in}
+\setlength\parindent{24pt}
 
 % --- Custom Footer Setup ---
 \pagestyle{fancy}
@@ -97,23 +99,33 @@
 \end{enumerate}
 
 \large
-\noindent
+\noindent 
 \textbf{2. Review of the literature} \\
 \normalsize
-\indent Controlling the torque is important to control the motion of a manipulator while still respecting joint limits. Del Prete (2017) provides a method for torque control that ensures feasible future trajectories while accounting for constraints in position, velocity, and torque. It is shown to be computationally efficient and applicable for high-frequency real-time control through numerical simulations. The method directly relates to a UR5 drawing task in which the joint torque and acceleration limits must be respected while the end-effector tracks the desired trajectories.
 
-\indent Belalia and colleagues (2024) suggest a vision-based approach for robotic trajectory tracking that uses convolutional neural networks (CNN) and Spline3 interpolation. The CNN tracks object locations from sequences of images, and the information is applied to produce smooth trajectories "with high accuracy and minimal oscillation." While their solution has an improvement in accuracy, the CNN approach is excessively complicated for this project, and simpler image recognition techniques can achieve adequate accuracy for end-effector trajectory generation of the UR5 drawing task.
+\begin{hangingpar}
 
-\indent Moreover, simulation platforms, like Gazebo Ignition and ROS2, allow the robot control systems to be tested prior to implementation in the real world, while being safe and flexible enough to test torque control and trajectory tracking, without damaging the robot or workspace. Simulation is important for any task involving contact forces (e.g., the UR5 drawing task), where position and force must be controlled simultaneously.
+\hspace{0.5cm} 
+Controlling the torque is important to control the motion of a manipulator while still respecting joint limits. Del Prete (2017) provides a method for torque control that ensures feasible future trajectories while accounting for constraints in position, velocity, and torque. It is shown to be computationally efficient and applicable for high-frequency real-time control through numerical simulations. The method directly relates to a UR5 drawing task in which the joint torque and acceleration limits must be respected while the end-effector tracks the desired trajectories.
 
-\indent While there have been advancements in torque control, vision-based trajectory generation, and simulation, not many have examined these together in terms of specific tasks such as robotic drawing. This project aims to fill that gap and combines torque control and image-based trajectory generation in simulation to allow for the precision of end-effector movement while handling force and positional constraints.
+\newpage
+
+\hspace{0.5cm}
+Belalia and colleagues (2024) suggest a vision-based approach for robotic trajectory tracking that uses convolutional neural networks (CNN) and Spline3 interpolation. The CNN tracks object locations from sequences of images, and the information is applied to produce smooth trajectories "with high accuracy and minimal oscillation." While their solution has an improvement in accuracy, the CNN approach is excessively complicated for this project, and simpler image recognition techniques can achieve adequate accuracy for end-effector trajectory generation of the UR5 drawing task.
+
+\hspace{0.5cm} 
+Moreover, simulation platforms, like Gazebo Ignition and ROS2, allow the robot control systems to be tested prior to implementation in the real world, while being safe and flexible enough to test torque control and trajectory tracking, without damaging the robot or workspace. Simulation is important for any task involving contact forces (e.g., the UR5 drawing task), where position and force must be controlled simultaneously.
+
+\hspace{0.5cm} 
+While there have been advancements in torque control, vision-based trajectory generation, and simulation, not many have examined these together in terms of specific tasks such as robotic drawing. This project aims to fill that gap and combines torque control and image-based trajectory generation in simulation to allow for the precision of end-effector movement while handling force and positional constraints.
+
+\end{hangingpar}
 
 \large
 \noindent
 \textbf{3. Related knowledge with FRA333} \\
 \normalsize
 \begin{enumerate}[nosep, itemsep=-2pt]
-    \item Forward Kinematics 
     \item Inverse Kinematics
     \item Differential Kinematics
     \item Dynamics
