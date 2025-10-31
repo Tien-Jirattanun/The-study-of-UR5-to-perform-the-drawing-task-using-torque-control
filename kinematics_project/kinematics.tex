@@ -85,7 +85,7 @@
 \normalsize
 \begin{enumerate}[nosep, itemsep=-2pt] 
     \item To develop the UR5 industrial robot manipulator to perform the drawing task in Gazebo Ignition physics simulation. 
-    \item Design and implement a torque control system that can follow position, velocity, and torque trajectories.
+    \item Design and implement a torque control system that can follow position, velocity, and acceleration trajectories.
     \item To create a trajectory generation process that can generate a path from any input image.
 \end{enumerate}
   
@@ -95,7 +95,8 @@
 \normalsize
 \begin{enumerate}[nosep, itemsep=-2pt] 
     \item This project is conducted and tested only in the Gazebo Ignition physics simulation environment using the ROS2 middleware; real-world implementation is not included.
-    \item This project only covers drawing task with 1 fixed drawing plain and not coverage pen changing, drawing at multiple plains, or other additional tasks.
+    \item This project only covers drawing task with 1 fixed drawing plain with constant wrench. This project not coverage pen changing, drawing at multiple plains, or other additional tasks.
+    \item This project will perform tracking trajectory within 10\% tracking error.
 \end{enumerate}
 
 \large
