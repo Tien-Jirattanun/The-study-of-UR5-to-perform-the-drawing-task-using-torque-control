@@ -1,1 +1,121 @@
+\newpage
+
 \section{Inverse Kinematic}
+
+The Inverse Kinematics (IK) used to calculates the joint angles of the UR5e robotic arm to achieve the desired end-effector position and orientation.
+
+This section describes the process for creating both IK and differential kinematics pathways that convert desired Cartesian positions (including velocity and acceleration) into a joint space. The IK implementation can be used in an ROS2 node that publishes a target for each of the robot's joints to that robot's downstream controller.
+
+\subsection{Inverse Kinematic Method}
+
+The UR5e is a 6-DoF serial manipulator with the joint layout:
+
+\begin{enumerate}
+    \item Base rotation
+    \item Shoulder
+    \item Elbow
+    \item Wrist 1
+    \item Wrist 2
+    \item Wrist 3
+\end{enumerate}
+
+This structure enables a closed-form inverse kinematics solution, which is implemented in the Python library ur\_analytic\_ik.
+
+The ur\_analytic\_ik solver uses the UR5e’s modified Denavit–Hartenberg (DH) parameters which are:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{c c c c}
+\hline
+\textbf{Joint} & $a_i$ (m) & $d_i$ (m) & $\alpha_i$ (rad) \\
+\hline
+1 & 0.0     & 0.1625  & $+\pi/2$ \\
+2 & -0.425  & 0.0     & $0$      \\
+3 & -0.3922 & 0.0     & $0$      \\
+4 & 0.0     & 0.1333  & $+\pi/2$ \\
+5 & 0.0     & 0.0997  & $-\pi/2$ \\
+6 & 0.0     & 0.0996  & $0$      \\
+\hline
+\end{tabular}
+\caption{DH parameters of the UR5e robot.}
+\end{table}
+
+The UR analytic IK uses classical geometric IK decomposition which divided into 4 main steps:
+\begin{enumerate}
+    \item \textbf{Solve Wrist Center Decomposition:} Compute the position of the wrist center by removing the effect of the tool extension along the end-effector z-axis:
+    \[
+    \mathbf{WC} = \mathbf{P}_{EE} - d_6 \cdot \mathbf{R}_{EE} \hat{z}
+    \]
+    where $\mathbf{P}_{EE}$ and $\mathbf{R}_{EE}$ are the desired end-effector position and orientation, and $d_6$ is the wrist to tool distance.
+    \item \textbf{Solve Joint 1:} Determine the base rotation angle to align the arm with the wrist center:
+    \[
+    \theta_1 = \arctan2(WC_y, WC_x)
+    \]
+    \item \textbf{Solve Joints 2 and 3:} Use planar geometry and the law of cosines to compute the shoulder and elbow joint angles. Let $a_2$ and $a_3$ be the link lengths:
+    \[
+    \theta_2 = \arctan2(z', r') - \arctan2(a_3 \sin\theta_3, a_2 + a_3 \cos\theta_3), \quad
+    \theta_3 = \arccos\left(\frac{r^2 - a_2^2 - a_3^2}{2 a_2 a_3}\right)
+    \]
+    where $(r', z')$ is the projection of the wrist center onto the plane of joints 2 and 3.
+
+    \item \textbf{Solve Wrist Joints (4, 5, 6):} Compute the final three joint angles to achieve the desired end-effector orientation:
+    \[
+    {}^3R_6 = ({}^0R_3)^\mathsf{T} \cdot {}^0R_6
+    \]
+    and the wrist angles $\theta_4, \theta_5, \theta_6$ are extracted from ${}^3R_6$ using standard Euler-angle decomposition.
+\end{enumerate}
+
+And then each geometry of the manipulator and the properties of trigonometric functions give us 2 option, so the total solution for inverse kinematic is 2(elbow) × 2(shoulder) × 2(wrist) = 8 possible solutions.\vspace{0.5cm}
+
+Then we select the best solution by filtering only solution with elbow up pose then choose the solution with the configuration closest to the previous solution.
+
+\subsection{Inverse Kinematic verification}
+To verify inverse kinematic we used forwark kinematic that already coded in this library which is:
+\[
+{}^{0}\!T_{6}
+=
+{}^{0}\!T_{1}
+\,{}^{1}\!T_{2}
+\,{}^{2}\!T_{3}
+\,{}^{3}\!T_{4}
+\,{}^{4}\!T_{5}
+\,{}^{5}\!T_{6}
+\]
+
+where each transform is:
+\[
+{}^{i-1}\!T_i =
+\begin{bmatrix}
+\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i \\
+\sin\theta_i & \cos\theta_i\cos\alpha_i  & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\
+0            & \sin\alpha_i              & \cos\alpha_i              & d_i \\
+0            & 0                          & 0                         & 1
+\end{bmatrix}
+\]
+
+and then compare it with the task space we used for inverse kinematic.
+
+\subsection{Differential Inverse Kinematics}
+To compute both joint velocities and acceleration, we need UR5e Jacobian matrix. And since ur\_analytic\_ik doesn't have Jacobiancomputation included. Pinocchio library is used for Jacobian computations.
+
+\subsubsection{Joint Velocities}
+The joint velocities are calculated from the desired end-effector velocity using the UR5e Jacobian matrix for a given joint configuration.
+
+End-effector velocity $\mathbf{V}$ is related to the joint velocities $\dot{\mathbf{q}}$ as:
+\[
+\mathbf{V} = J(\mathbf{q}) \, \dot{\mathbf{q}}
+\]
+Rearranging gives the joint velocities:
+\[
+\dot{\mathbf{q}} = J^\dagger \mathbf{V}
+\]
+
+\subsubsection{Joint Accelerations}
+The joint accelerations are calculated from the desired end-effector acceleration using the change in the Jacobian over time:
+\[
+\mathbf{A} = J(\mathbf{q}) \, \ddot{\mathbf{q}} + \dot{J}(\mathbf{q}, \dot{\mathbf{q}}) \, \dot{\mathbf{q}}
+\]
+Rearranging gives the joint accelerations:
+\[
+\ddot{\mathbf{q}} = J^\dagger \left( \mathbf{A} - \dot{J} \, \dot{\mathbf{q}} \right)
+\]
