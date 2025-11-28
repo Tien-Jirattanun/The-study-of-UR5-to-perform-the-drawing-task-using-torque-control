@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.28)  29 NOV 2025 03:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.28)  29 NOV 2025 04:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,16 +559,12 @@ Package pdftex.def Info: img/rosgraph.png  used on input line 7.
 (pdftex.def)             Requested size: 481.87546pt x 100.76643pt.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 15.
-
-Overfull \hbox (24.85333pt too wide) in paragraph at lines 34--36
-  \OT1/cmr/m/n/10 com-putes and broad-casts the 3D poses of a robot^^Ss links based on its URDF model and in-com-ing \OT1/cmtt/m/n/10 joint[]states 
- []
-
 <img/rviz2.png, id=17, 2055.68pt x 1215.54124pt>
 File: img/rviz2.png Graphic file (type png)
 <use img/rviz2.png>
 Package pdftex.def Info: img/rviz2.png  used on input line 57.
 (pdftex.def)             Requested size: 481.87546pt x 284.92888pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -588,27 +584,40 @@ File: img/control_system_diagram.png Graphic file (type png)
 <use img/control_system_diagram.png>
 Package pdftex.def Info: img/control_system_diagram.png  used on input line 48.
 (pdftex.def)             Requested size: 481.87546pt x 179.65115pt.
-) (./sub_tex/test_and_evaluation.tex) (./sub_tex/conclusion.tex)
+) (./sub_tex/test_and_evaluation.tex
+<img/drawing.png, id=45, 704.6325pt x 705.63625pt>
+File: img/drawing.png Graphic file (type png)
+<use img/drawing.png>
+Package pdftex.def Info: img/drawing.png  used on input line 7.
+(pdftex.def)             Requested size: 284.52756pt x 284.93051pt.
+<img/wrench.png, id=46, 639.38875pt x 314.17375pt>
+File: img/wrench.png Graphic file (type png)
+<use img/wrench.png>
+Package pdftex.def Info: img/wrench.png  used on input line 17.
+(pdftex.def)             Requested size: 481.87546pt x 236.78026pt.
+) (./sub_tex/conclusion.tex
 
-[7 <./img/control_system_diagram.png>] (./final_report.aux)
+[7 <./img/control_system_diagram.png> <./img/drawing.png>])
+
+[8 <./img/wrench.png>] (./final_report.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-10-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16656 strings out of 467747
- 348964 string characters out of 5426941
- 760556 words of memory out of 5000000
- 45022 multiletter control sequences out of 15000+600000
+ 16672 strings out of 467747
+ 349288 string characters out of 5426941
+ 760600 words of memory out of 5000000
+ 45038 multiletter control sequences out of 15000+600000
  635892 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,16n,105p,1220b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,16n,105p,1197b,420s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on final_report.pdf (7 pages, 851651 bytes).
+Output written on final_report.pdf (8 pages, 1337806 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
