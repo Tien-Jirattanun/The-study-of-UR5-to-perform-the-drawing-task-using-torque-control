@@ -1,4 +1,26 @@
 \section{Overview}
 
 \normalsize
-This topic will explain about what do the contribution of this work and what each topic will cover
+This project explore the development of a torque-controlled system for UR5e robot to draw in a simulation space. Rather than using just position conteol, this project focuses on simultaneously controlling both the motion of the robot and the contact force created by the pen onto the canvas. The system integrates trajectory generation with analytic inverse kinematics, differential kinematics and dynamics based torque control. All of the components will be implemented in Gazebo with ROS2 as the communication backbone.\vspace{0.5cm}
+
+This report consists of six main sections, excluding the Overview:
+
+\begin{itemize}
+    \item \textbf{Software Architecture and Simulation} \\
+    Describes the simulation environment, ROS2 ecosystem, and node--topic communication structure. Introduces the custom nodes (force--motion controller, IK node) and supporting nodes (state broadcaster, effort controller, ros--gz bridge, RViz visualization).
+
+    \item \textbf{Trajectory Generation} \\
+    Explains how to generate a trajectory for drawing by using image-processing techniques. This algorithm includes covers edge detection, path extraction, and conversion into a CSV file with positions, velocities, and acceleration of end-effector for Inverse Kinematic to solve.
+
+    \item \textbf{Inverse Kinematic} \\
+    Detailed into the IK method used for the UR5e via ur\_analytic\_ik library which using geometric IK decomposition which will be verify using forward kinematics and differential IK for joint velocities and accelerations is also will be compute via pinocchio library.
+
+    \item \textbf{Dynamics and Control System} \\
+    Presents the motion control system based on UR5 dynamics. Shows the PD controller for trajectory tracking and introduces the Z-axis PI force-elevation controller to manipulate the contact force. including the full control diagram.
+
+    \item \textbf{Test and Evaluation} \\
+    Discusses the experimental procedure for validating the drawing performance in simulation. By using the RMSE metric to evaluate both trajectory accuracy and force-control performance.
+
+    \item \textbf{Conclusion} \\
+    Summarizes the results, highlights the effectiveness of combining torque control with force regulation, and identifies future work.
+\end{itemize}
