@@ -1,6 +1,6 @@
 \section{Dynamics and Control system}
 
-There are various type of control method available for UR5 with torque control. This work presents a motion control strategy based on the dynamics of the UR5. To generate the required torque for motion control, The inverse dynamics equation in joint space (equation 1) is used to compute required torque respect to the Joint state\footnote{Joint state: joint position, joint velocity, joint acceleration}. To control position, velocity and acceleration of the UR5 using PD motion controller (equation 2)
+There are various type of control method available for UR5e with torque control. This work presents a motion control strategy based on the dynamics of the UR5e. To generate the required torque for motion control, The inverse dynamics equation in joint space (equation 1) is used to compute required torque respect to the Joint state\footnote{Joint state: joint position, joint velocity, joint acceleration}. To control position, velocity and acceleration of the UR5e using PD motion controller (equation 2)
 
 \begin{equation}
     \tau = M(q)\ddot{q} + C(q, \dot{q}) + g(q)
@@ -25,7 +25,7 @@ where:
     \item $\ddot{q_d}$ is the desired joint acceleration
 \end{itemize}
 
-However, By using the dynamics model in joint space (equation 1) and PD controller (equation 2) are not able to control the force occurs at the end-effector. The method for control motion and force at end-effector simultaneously is to apply the Hybrid force-motion control. Even so the hybrid force-motion control is using the dynamics model in task space. Make the dynamics calculation more complicated to compute. Even if using dynamics model in joint space for motion controller and force controller together. Controller will be fighting over position. This project presents the Z-axis elevation PI control (equation 3) method to control the force occurs at the end-effector. F/T sensor is noisy sensor even apply the low-pass filter. This cause the force elevation controller is only PI controller because the D term is noise sensitive controller. This method will not affect the control system to compensate the position error with stronger force respect to the time because of the motion controller is only PD controller. 
+However, By using the dynamics model in joint space (equation 1) and PD controller (equation 2) are not able to control the force occurs at the end-effector. The method for control motion and force at end-effector simultaneously is to apply the Hybrid force-motion control. Even so the hybrid force-motion control is using the dynamics model in task space. Make the dynamics calculation more complicated to compute and using dynamics model in joint space for motion controller and force controller together will make controller fighting over position. This project presents the Z-axis elevation PI control (equation 3) method to control the force occurs at the end-effector. F/T sensor is noisy even after apply the low-pass filter. This cause the force elevation to use only PI controller because the D term is noise sensitive. This method will not affect the control system to compensate the position error with stronger force respect to the time because of the motion controller is only PD controller. 
 
 \begin{equation}
     Z = -1 \cdot (K_p(W_{d} - W) + K_i \int(W_{d} - W) \frac{d}{dt})
@@ -39,7 +39,7 @@ where:
     \item $W_d$ and $W$ are the desired and actual force at end-effector Z axis
 \end{itemize}
 
-After apply PD motion controller and PI elevation controller, UR5 are able to control motion and force simultaneously without fighting between 2 controllers in joint space. The control diagram is show in Fig.\ref{fig:control_system_diagram}. Lastly the inverse dynamics model calculation done by Pinocchio framework on python. And Controlled by the custom code written by this project team. 
+After apply PD motion controller and PI elevation controller, UR5e are able to control motion and force simultaneously without fighting between 2 controllers in joint space. The control diagram is show in Fig.\ref{fig:control_system_diagram}. Lastly the inverse dynamics model calculation done by Pinocchio framework on python. And Controlled by the custom code written by this project team. 
 
 \newpage
 
