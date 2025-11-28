@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764361752.80051 "/Users/tien/Documents/GitHub/The-study-of-UR5-to-perform-the-drawing-task-using-torque-control/FinalReport/final_report.tex" "final_report.pdf" "final_report" 1764361753.60868 0
+["pdflatex"] 1764363404.63334 "/Users/tien/Documents/GitHub/The-study-of-UR5-to-perform-the-drawing-task-using-torque-control/FinalReport/final_report.tex" "final_report.pdf" "final_report" 1764363405.53699 0
   "/Users/tien/Documents/GitHub/The-study-of-UR5-to-perform-the-drawing-task-using-torque-control/FinalReport/final_report.tex" 1764358301.96052 3006 c1d56ed922b4838365d060e56c944eac ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -154,7 +154,7 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1761658693 5544244 5ff659f77628e893c765a7952f870978 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1761658854 3629304 e30cdf6410e39160a0936003353d1f13 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "final_report.aux" 1764361753.55953 2183 e46379418172303b20ea23c63f084a6d "pdflatex"
+  "final_report.aux" 1764363405.48218 2183 e46379418172303b20ea23c63f084a6d "pdflatex"
   "final_report.tex" 1764358301.96052 3006 c1d56ed922b4838365d060e56c944eac ""
   "img/control_system_diagram.png" 1764357754.59064 41926 6c20497317ddda8223bbabf2f48bd2e9 ""
   "img/fibo_logo.png" 1763566689.68893 30113 1d8a92ff3ed9957a71c4724c2dfb17d7 ""
@@ -163,9 +163,9 @@
   "sub_tex/architecture.tex" 1764361673.05783 2503 494e092220717e1a2f3461691f3493f4 ""
   "sub_tex/conclusion.tex" 1763567526.79293 20 b50204e17c0a475d3d65191e029fdf1d ""
   "sub_tex/dynamics_and_control_system.tex" 1764361584.84169 3347 df8ef41325cb6f2499c069f203b043ff ""
-  "sub_tex/inverse_kinematic.tex" 1764361751.61765 5096 ca45fe8632c7fcefe46f7174f364c975 ""
+  "sub_tex/inverse_kinematic.tex" 1764361757.85701 5096 ca45fe8632c7fcefe46f7174f364c975 ""
   "sub_tex/overview.tex" 1764361728.91242 2323 3452aada0b89b18c5601afcb9c83bb49 ""
-  "sub_tex/test_and_evaluation.tex" 1764361299.21497 535 df2937acc5b80e96852ccc570c40d0bd ""
+  "sub_tex/test_and_evaluation.tex" 1764363404.37047 613 0668f5566f2acac53391b3a063f424d5 ""
   "sub_tex/trajectory_generation.tex" 1763567245.34335 115 10d82a4e2e219aa41ce98d5f7e86dbfe ""
   (generated)
   "final_report.aux"
