@@ -281,6 +281,16 @@ INPUT ./img/control_system_diagram.png
 INPUT ./sub_tex/test_and_evaluation.tex
 INPUT ./sub_tex/test_and_evaluation.tex
 INPUT sub_tex/test_and_evaluation.tex
+INPUT ./img/drawing.png
+INPUT ./img/drawing.png
+INPUT ./img/drawing.png
+INPUT ./img/drawing.png
+INPUT ./img/drawing.png
+INPUT ./img/wrench.png
+INPUT ./img/wrench.png
+INPUT ./img/wrench.png
+INPUT ./img/wrench.png
+INPUT ./img/wrench.png
 INPUT ./sub_tex/conclusion.tex
 INPUT ./sub_tex/conclusion.tex
 INPUT sub_tex/conclusion.tex
