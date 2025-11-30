@@ -1,2 +1,9 @@
-\newpage
+
+
 \section{Conclusion}
+This project successfully implemented a control system incorporating a motion controller and a force controller simultaneously for the UR5e robot in the Gazebo Ignition physics simulation. The primary objective was to perform a drawing task while maintaining a position tracking error of less than 10\% and controlling the contact force applied to the canvas. The system achieved high accuracy, with the motion control system recording an average Root Mean Square Error (RMSE) of 0.0022 radians, which is only 1.9\% error from the joint limit. The trajectory generation process, starting from any image, effectively created the required waypoints. Furthermore, the Inverse Kinematics successfully converted the task space targets (position, velocity, and acceleration) into joint space commands. Regarding force regulation, the force control mechanism was able to achieve the desired force but was constrained to a small effective range of 0–2 N. A key limitation found was that if the desired force extended beyond these boundaries, the robot was unable to maintain the necessary end-effector orientation
+
+\newpage
+\section {Material}
+1. \href{https://youtu.be/wwcuVrQiC04}{Demo Video YouTube link}\\
+2. \href{https://github.com/Tien-Jirattanun/UR5e_drawing}{GitHub}
